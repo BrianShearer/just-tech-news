@@ -1,5 +1,14 @@
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
+// start of code for trouble shooting 
+const router = require('express').Router();
+
+router.get('/', (req, res) => {
+  res.render('homepage');
+});
+
+
+// end of code for troubleshooting 
 
 router.get('/login', (req, res) => {
   res.render('login');
@@ -54,3 +63,7 @@ router.get('/', (req, res) => {
       res.status(500).json(err);
     });
 });
+
+
+// added after code snapshot from troubleshooting
+module.exports = router;
